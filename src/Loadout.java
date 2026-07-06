@@ -43,9 +43,9 @@ public class Loadout {
 
     public void addModifiers (ArrayList<String> modifiers) {
         if (!modifiers.isEmpty()) {
-            for (String i : modifiers) {
-                if (!this.modifiers.contains(i)) {
-                    this.modifiers.add(i);
+            for (String currentModifier : modifiers) {
+                if (!this.modifiers.contains(currentModifier)) {
+                    this.modifiers.add(currentModifier);
                 }
             }
         }
