@@ -38,6 +38,10 @@ public class Loadout {
     }
 
     public void setModifiers (ArrayList<String> modifiers) {
+        this.modifiers = modifiers;
+    }
+
+    public void addModifiers (ArrayList<String> modifiers) {
         if (!modifiers.isEmpty()) {
             for (String i : modifiers) {
                 if (!this.modifiers.contains(i)) {
