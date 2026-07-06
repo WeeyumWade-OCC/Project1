@@ -16,4 +16,34 @@ public class Loadout {
         this.armor = armor;
         this.modifiers = modifiers;
     }
+
+    public WeaponType getWeapon() {
+        return this.weapon;
+    }
+
+    public void setWeapon(WeaponType weapon) {
+        this.weapon = weapon;
+    }
+
+    public ArmorType getArmor() {
+        return this.armor;
+    }
+
+    public void setArmor (ArmorType armor) {
+        this.armor = armor;
+    }
+
+    public ArrayList<String> getModifiers() {
+        return this.modifiers;
+    }
+
+    public void setModifiers (ArrayList<String> modifiers) {
+        if (!modifiers.isEmpty()) {
+            for (String i : modifiers) {
+                if (!this.modifiers.contains(i)) {
+                    this.modifiers.add(i);
+                }
+            }
+        }
+    }
 }
