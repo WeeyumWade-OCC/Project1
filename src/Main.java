@@ -11,17 +11,18 @@ public class Main {
         Loadout fighter = new Loadout(WeaponType.Sword, ArmorType.Plate, mods);
 
         System.out.println("Your old Loadout: ");
-        newbie.display();
+        System.out.println(newbie);
 
         newbie.setWeapon(WeaponType.Staff);
         newbie.setArmor(ArmorType.Cloth);
         newbie.addModifier("Lightning");
-        newbie.addModifier("Fire");
+        newbie.addModifier("fiRe");
+        //newbie.addModifier("beginersLuck");
         newbie.addModifier("Ice");
         //newbie.addModifier("Fire");
 
         System.out.println("Your new Loadout: ");
-        newbie.display();
+        System.out.println(newbie);
 
         System.out.println("You are now officially a beginner Mage!");
     }

@@ -65,18 +65,23 @@ public class Loadout {
 
     }
 
-    public void display () {
-        System.out.println("Weapon: " + this.weapon);
-        System.out.println("Armor: " + this.armor);
-        System.out.println("Modifiers: ");
+    @Override
+    public String toString () {
+        String output = "";
+        
+        output = "Weapon: " + this.weapon + "\n";
+        output += "Armor: " + this.armor + "\n";
+        output += "Modifiers (" + modifiers.size() + "):\n";
         
         //if there are no modifiers, print none
-        if (this.getModifiers().isEmpty()) {
-            System.out.println("   none");
+        if (this.modifiers.isEmpty()) {
+            output += "\tnone";
         }
         else {
             for (String currentModifier : this.modifiers)
-                System.out.println("   " + currentModifier);
+                output += "\t" + currentModifier + "\n";
         }
+
+        return output;
     }
 }
