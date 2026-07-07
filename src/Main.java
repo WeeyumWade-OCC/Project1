@@ -18,6 +18,7 @@ public class Main {
         newbie.addModifier("Lightning");
         newbie.addModifier("Fire");
         newbie.addModifier("Ice");
+        //newbie.addModifier("Fire");
 
         System.out.println("Your new Loadout: ");
         newbie.display();

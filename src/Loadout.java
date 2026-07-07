@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Loadout {
     private WeaponType weapon;
     private ArmorType armor;
-    private String modifier;
     private ArrayList<String> modifiers;
 
     public Loadout() {
@@ -51,8 +50,8 @@ public class Loadout {
             if (newModifier.name().equalsIgnoreCase(modifier)) {
                 validModifier = true;
                 // now, check if the Loadout already contains the modifier
-                if (!this.modifiers.contains(newModifier)) {
-                    this.modifiers.add(modifier);
+                if (!this.modifiers.contains(newModifier.name())) {
+                    this.modifiers.add(newModifier.name());
                 }
                 else {
                     throw new IllegalArgumentException("The modifier, " + modifier + ", is already present");
