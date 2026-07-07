@@ -10,21 +10,18 @@ public class Main {
 
         Loadout fighter = new Loadout(WeaponType.Sword, ArmorType.Plate, mods);
 
-        System.out.println("Your old weapon: " + newbie.getWeapon());
-        System.out.println("Your old armor: " + newbie.getArmor());
-        System.out.println("Your old modifiers: " + newbie.getModifiers());
+        System.out.println("Your old Loadout: ");
+        newbie.display();
 
         newbie.setWeapon(WeaponType.Staff);
         newbie.setArmor(ArmorType.Cloth);
-        
-        ArrayList<String> newbieMods = new ArrayList<>();
-        newbieMods.add("Lightning");
+        newbie.addModifier("Lightning");
+        newbie.addModifier("Fire");
+        newbie.addModifier("Ice");
 
-        newbie.setModifiers(newbieMods);
+        System.out.println("Your new Loadout: ");
+        newbie.display();
 
-        System.out.println("Your new weapon: " + newbie.getWeapon());
-        System.out.println("Your new armor: " + newbie.getArmor());
-        System.out.println("Your new modifiers: " + newbie.getModifiers());
         System.out.println("You are now officially a beginner Mage!");
     }
 }

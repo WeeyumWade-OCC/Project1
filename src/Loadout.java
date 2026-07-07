@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Loadout {
     private WeaponType weapon;
     private ArmorType armor;
+    private String modifier;
     private ArrayList<String> modifiers;
 
     public Loadout() {
@@ -41,13 +42,42 @@ public class Loadout {
         this.modifiers = modifiers;
     }
 
-    public void addModifiers (ArrayList<String> modifiers) {
-        if (!modifiers.isEmpty()) {
-            for (String currentModifier : modifiers) {
-                if (!this.modifiers.contains(currentModifier)) {
-                    this.modifiers.add(currentModifier);
+    // based on assignment requirements, this needs to take in a string
+    public void addModifier (String modifier) {
+        boolean validModifier = false;
+        
+        // first we make sure the string is a valid option
+        for (ModifierType newModifier : ModifierType.values()) {
+            if (newModifier.name().equalsIgnoreCase(modifier)) {
+                validModifier = true;
+                // now, check if the Loadout already contains the modifier
+                if (!this.modifiers.contains(newModifier)) {
+                    this.modifiers.add(modifier);
+                }
+                else {
+                    throw new IllegalArgumentException("The modifier, " + modifier + ", is already present");
                 }
             }
+        }
+
+        if (!validModifier) {
+            throw new IllegalArgumentException(modifier + " is not a valid modifier");
+        }
+
+    }
+
+    public void display () {
+        System.out.println("Weapon: " + this.weapon);
+        System.out.println("Armor: " + this.armor);
+        System.out.println("Modifiers: ");
+        
+        //if there are no modifiers, print none
+        if (this.getModifiers().isEmpty()) {
+            System.out.println("   none");
+        }
+        else {
+            for (String currentModifier : this.modifiers)
+                System.out.println("   " + currentModifier);
         }
     }
 }
