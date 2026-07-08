@@ -11,10 +11,22 @@ public class Main {
         ArrayList<String> mods2 = new ArrayList<>();
         mods2.add("Fire");
 
+        ArrayList<String> noMods = new ArrayList<>();
+
         Loadout fighter = new Loadout(WeaponType.Sword, ArmorType.Plate, mods1);
         Loadout mage = new Loadout(WeaponType.Staff, ArmorType.Cloth, mods2);
         mage.addModifier(ModifierType.Ice.name());
         mage.addModifier(ModifierType.Lightning.name());
+        Loadout thief = new Loadout(WeaponType.Dagger, ArmorType.Leather, noMods);
+        Loadout dwarf = new Loadout(WeaponType.Axe, ArmorType.Chain, noMods);
+        dwarf.addModifier(ModifierType.CritChance.name());
+        dwarf.addModifier(ModifierType.DefenseBoost.name());
+
+        System.out.println("Here are your teammates:");
+        System.out.println("Fighter:\n" + fighter.toString());
+        System.out.println("Theif:\n" + thief.toString());
+        System.out.println("Mage:\n" + mage.toString());
+        System.out.println("Dwarf:\n" + dwarf.toString());
 
         System.out.println("Your old Loadout: ");
         System.out.println(newbie);
@@ -34,5 +46,15 @@ public class Main {
 
         System.out.println("Equal to fighter: " + newbie.equals(fighter));
         System.out.println("Equal to mage: " + newbie.equals(mage));
+        System.out.println("Equal to dwarf: " + newbie.equals(dwarf));
+
+        System.out.println("You're not equal to a fighter, but who do you think is better?");
+        if (newbie.compareTo(fighter) < 0) {
+            System.out.println("The fighter is still stronger than you");
+        } else if (newbie.compareTo(fighter) > 0) {
+            System.out.println("Congratulations! you are better than a fighter!");
+        }
+
+        
     }
 }

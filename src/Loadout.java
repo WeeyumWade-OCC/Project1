@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Loadout {
+public class Loadout implements Comparable<Loadout> {
     private WeaponType weapon;
     private ArmorType armor;
     private ArrayList<String> modifiers;
@@ -86,22 +86,34 @@ public class Loadout {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Loadout) {
-            Loadout other = (Loadout) obj;
-            
-            return this.weapon == other.getWeapon()
-            && this.armor == other.getArmor()
-            && this.modifiers.size() == other.getModifiers().size();
-            
-            // if (this == obj) {
-            //     return true;
-            // } else if (this.weapon == other.getWeapon() && this.armor == other.getArmor() && this.modifiers.size() == other.getModifiers().size()) {
-            //     return true;
-            // } else {
-            //  return false;
-            //}
-        } else {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Loadout)) {
             return false;
         }
+
+        Loadout other = (Loadout) obj;
+        
+        return this.weapon == other.getWeapon()
+            && this.armor == other.getArmor()
+            && this.modifiers.size() == other.getModifiers().size();
+    }
+
+    @Override
+    public int compareTo(Loadout other) {
+        int result = Integer.compare(this.modifiers.size(), other.getModifiers().size());
+        if (result != 0) {
+            return result;
+        }
+        
+        result = this.weapon.compareTo(other.getWeapon());
+        if (result != 0) {
+            return result;
+        }
+
+        result = this.armor.compareTo(other.getArmor());
+            return result;
     }
 }
