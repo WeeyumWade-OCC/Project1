@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
@@ -55,6 +56,31 @@ public class Main {
             System.out.println("Congratulations! you are better than a fighter!");
         }
 
-        
+        System.out.println("\nQuick compareTo Tests:");
+
+        System.out.println("fighter vs mage: " + fighter.compareTo(mage));
+        System.out.println("mage vs fighter: " + mage.compareTo(fighter));
+        System.out.println("newbie vs fighter: " + newbie.compareTo(fighter));
+        System.out.println("theif vs dwarf: " + thief.compareTo(dwarf));
+        System.out.println("dwarf vs fighter: " + dwarf.compareTo(fighter));
+
+        //finish up with the ordered list
+        ArrayList<Loadout> loadouts = new ArrayList<>();
+
+        loadouts.add(newbie);
+        loadouts.add(fighter);
+        loadouts.add(mage);
+        loadouts.add(thief);
+        loadouts.add(dwarf);
+
+        Collections.sort(loadouts);
+
+        System.out.println("\nSorted Loadouts:");
+
+        int rank = 1;
+        for (Loadout loadout : loadouts) {
+            System.out.println(rank++ + ".");
+            System.out.println(loadout);
+        }
     }
 }
