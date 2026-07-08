@@ -4,11 +4,17 @@ public class Main {
     public static void main(String[] args) {
         Loadout newbie = new Loadout();
 
-        ArrayList<String> mods = new ArrayList<>();
-        mods.add("AttackSpeed");
-        mods.add("HealthBoost");
+        ArrayList<String> mods1 = new ArrayList<>();
+        mods1.add("AttackSpeed");
+        mods1.add("HealthBoost");
 
-        Loadout fighter = new Loadout(WeaponType.Sword, ArmorType.Plate, mods);
+        ArrayList<String> mods2 = new ArrayList<>();
+        mods2.add("Fire");
+
+        Loadout fighter = new Loadout(WeaponType.Sword, ArmorType.Plate, mods1);
+        Loadout mage = new Loadout(WeaponType.Staff, ArmorType.Cloth, mods2);
+        mage.addModifier(ModifierType.Ice.name());
+        mage.addModifier(ModifierType.Lightning.name());
 
         System.out.println("Your old Loadout: ");
         System.out.println(newbie);
@@ -25,5 +31,8 @@ public class Main {
         System.out.println(newbie);
 
         System.out.println("You are now officially a beginner Mage!");
+
+        System.out.println("Equal to fighter: " + newbie.equals(fighter));
+        System.out.println("Equal to mage: " + newbie.equals(mage));
     }
 }

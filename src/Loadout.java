@@ -67,9 +67,7 @@ public class Loadout {
 
     @Override
     public String toString () {
-        String output = "";
-        
-        output = "Weapon: " + this.weapon + "\n";
+        String output = "Weapon: " + this.weapon + "\n";
         output += "Armor: " + this.armor + "\n";
         output += "Modifiers (" + modifiers.size() + "):\n";
         
@@ -78,10 +76,32 @@ public class Loadout {
             output += "\tnone";
         }
         else {
-            for (String currentModifier : this.modifiers)
+            for (String currentModifier : this.modifiers) {
                 output += "\t" + currentModifier + "\n";
+            }
         }
 
         return output;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Loadout) {
+            Loadout other = (Loadout) obj;
+            
+            return this.weapon == other.getWeapon()
+            && this.armor == other.getArmor()
+            && this.modifiers.size() == other.getModifiers().size();
+            
+            // if (this == obj) {
+            //     return true;
+            // } else if (this.weapon == other.getWeapon() && this.armor == other.getArmor() && this.modifiers.size() == other.getModifiers().size()) {
+            //     return true;
+            // } else {
+            //  return false;
+            //}
+        } else {
+            return false;
+        }
     }
 }
